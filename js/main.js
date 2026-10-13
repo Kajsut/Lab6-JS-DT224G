@@ -21,5 +21,7 @@ const form = document.querySelector("#searchform");
 const search = document.querySelector("#search");
 const button = document.querySelector("#searchbutton");
 
+const recipe = document.querySelector("#recipe");
+
 const searchError = document.querySelector("#error");
 const apiError = document.querySelector("#message");
