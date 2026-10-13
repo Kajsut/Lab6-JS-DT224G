@@ -14,3 +14,12 @@
  *  5   Visa receptet på DOM, info "visa recept"
  *  6   Felhantering vid API
  */
+
+
+//Hämtar element från DOM
+const form = document.querySelector("#searchform");
+const search = document.querySelector("#search");
+const button = document.querySelector("#searchbutton");
+
+const searchError = document.querySelector("#error");
+const apiError = document.querySelector("#message");
