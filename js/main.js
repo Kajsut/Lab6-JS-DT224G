@@ -18,7 +18,7 @@
 
 //Hämtar element från DOM
 const form = document.querySelector("#searchform");
-const search = document.querySelector("#search");
+const searchFood = document.querySelector("#search");
 const button = document.querySelector("#searchbutton");
 
 const recipe = document.querySelector("#recipe");
@@ -29,9 +29,23 @@ const apiError = document.querySelector("#message");
 
 //Validerar sökinnehållet
 function validateForm (event) {
+    //Hindrar formuläret från att skickas
     event.preventDefault();
     console.log("Sidan laddas ej om");
+
+    //läser in värdet i formuläret
+    const search = searchFood.value.trim();
+    const error = searchError
     
+    if (search === "") {
+        console.log("Du måste fylla i en sökfras");
+        error.textContent = "Du måste fylla i en sökfras";
+    } else {
+        error.textContent = "";
+    }
+
+
+
 }
 
 form.addEventListener("submit", validateForm);
