@@ -31,14 +31,13 @@ const apiError = document.querySelector("#message");
 function validateForm (event) {
     //Hindrar formuläret från att skickas
     event.preventDefault();
-    console.log("Sidan laddas ej om");
 
     //läser in värdet i formuläret
     const search = searchFood.value.trim();
     const error = searchError
     
+    //Kontrollerar om det står något i formuläret + eventuell meddelande
     if (search === "") {
-        console.log("Du måste fylla i en sökfras");
         error.textContent = "Du måste fylla i en sökfras";
     } else {
         error.textContent = "";
