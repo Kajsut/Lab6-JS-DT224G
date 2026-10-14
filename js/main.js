@@ -46,11 +46,13 @@ function validateForm (event) {
     callApi();
 }
 
+
+
 async function callApi () {
     console.log("callApi...")
     
     //läser in värdet från formuläret
-    const search = searchFood.value.trim();    
+    const search = searchFood.value;    
     
     try {
         //Hämtar information från APIn
@@ -62,7 +64,7 @@ async function callApi () {
             throw new Error(`Ett fel inträffade: ${response.status}`)
         }
     
-        //Översätter från JSON till JavaScript
+        //Översätter koden från JSON till JavaScript
         const data = await response.json();
         console.log(data);
 
