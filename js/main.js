@@ -56,12 +56,15 @@ async function callApi () {
         //Hämtar information från APIn
         const response = await fetch (`https://dummyjson.com/recipes/search?q=${search}`)
         console.log(response);
-        
+
         //Kollar om APIn ger response
         if(!response.ok){
             throw new Error(`Ett fel inträffade: ${response.status}`)
         }
     
+        //Översätter från JSON till JavaScript
+        const data = await response.json();
+        console.log(data);
 
     } catch (error) {
         console.log(error);
