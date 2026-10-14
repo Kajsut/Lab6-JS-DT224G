@@ -72,10 +72,13 @@ async function callApi () {
 
     } catch (error) {
         console.log(error);
+        return;
     }
 
     
 }
+
+            //Egen funktion för felmeddelanden?
 
 
 
@@ -88,22 +91,28 @@ async function showRecipe() {
     const error = searchError;
 
     
-    const data = await callApi(search.value);
+    const data = await callApi(search);
     console.log(data);
 
     //Felmeddelande ifall det ej finns data
     if(!data) {
         error.textContent("Kunde ej hämta data")
+        return;
     }
     
     //Felmeddelande ifall det ej finns något recept
-    if(data.length === 0){
+    if(data.recipes.length === 0){
         error.textContent("Hittade ej något recept. Testa gärna ett annat sökord");
+        emptyRecipe();
     }
 
 
 }
 
+
+function emptyRecipe () {
+    
+}
 
 
 
