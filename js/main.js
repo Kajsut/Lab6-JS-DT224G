@@ -67,16 +67,45 @@ async function callApi () {
         //Översätter koden från JSON till JavaScript
         const data = await response.json();
         console.log(data);
+        return data;
+
 
     } catch (error) {
         console.log(error);
-    } //finally
+    }
+
+    
+}
+
+
+
+async function showRecipe() {
+    
+    console.log("Funktionen showRecipe")
+
+    //läser in värdet från formuläret
+    const search = searchFood.value;  
+    const error = searchError;
+
+    
+    const data = await callApi(search.value);
+    console.log(data);
+
+    //Felmeddelande ifall det ej finns data
+    if(!data) {
+        error.textContent("Kunde ej hämta data")
+    }
+    
+    //Felmeddelande ifall det ej finns något recept
+    if(data.length === 0){
+        error.textContent("Hittade ej något recept. Testa gärna ett annat sökord");
+    }
+
+
 }
 
 
 
 
-
-
-
 form.addEventListener("submit", validateForm);
+showRecipe();
