@@ -34,14 +34,13 @@ function validateForm (event) {
 
     //läser in värdet i formuläret
     const search = searchFood.value.trim();
-    const error = searchError
     
     //Kontrollerar om det står något i formuläret + eventuell meddelande
     if (search === "") {
-        error.textContent = "Du måste fylla i en sökfras";
+        searchError.textContent = "Du måste fylla i en sökfras";
         return;
     } else {
-        error.textContent = "";
+        searchError.textContent = "";
     }
 
     callApi();
@@ -49,6 +48,17 @@ function validateForm (event) {
 
 async function callApi () {
     console.log("callApi...")
+    
+    
+    try {
+        const response = await fetch ("")
+
+        if(!response.ok){
+            throw new 
+        }
+    } catch {
+
+    } //finally
 }
 
 
