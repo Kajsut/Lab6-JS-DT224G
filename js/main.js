@@ -32,7 +32,7 @@ function validateForm (event) {
     //Hindrar formuläret från att skickas
     event.preventDefault();
 
-    //läser in värdet i formuläret
+    //läser in värdet från formuläret
     const search = searchFood.value.trim();
     
     //Kontrollerar om det står något i formuläret + eventuell meddelande
@@ -49,15 +49,22 @@ function validateForm (event) {
 async function callApi () {
     console.log("callApi...")
     
+    //läser in värdet från formuläret
+    const search = searchFood.value.trim();    
     
     try {
-        const response = await fetch ("")
-
+        //Hämtar information från APIn
+        const response = await fetch (`https://dummyjson.com/recipes/search?q=${search}`)
+        console.log(response);
+        
+        //Kollar om APIn ger response
         if(!response.ok){
-            throw new 
+            throw new Error(`Ett fel inträffade: ${response.status}`)
         }
-    } catch {
+    
 
+    } catch (error) {
+        console.log(error);
     } //finally
 }
 
