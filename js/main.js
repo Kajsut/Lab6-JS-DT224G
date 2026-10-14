@@ -25,3 +25,13 @@ const recipe = document.querySelector("#recipe");
 
 const searchError = document.querySelector("#error");
 const apiError = document.querySelector("#message");
+
+
+//Validerar sökinnehållet
+function validateForm (event) {
+    event.preventDefault();
+    console.log("Sidan laddas ej om");
+    
+}
+
+form.addEventListener("submit", validateForm);
