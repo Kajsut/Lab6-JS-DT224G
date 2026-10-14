@@ -39,12 +39,22 @@ function validateForm (event) {
     //Kontrollerar om det står något i formuläret + eventuell meddelande
     if (search === "") {
         error.textContent = "Du måste fylla i en sökfras";
+        return;
     } else {
         error.textContent = "";
     }
 
-
-
+    callApi();
 }
+
+async function callApi () {
+    console.log("callApi...")
+}
+
+
+
+
+
+
 
 form.addEventListener("submit", validateForm);
