@@ -94,7 +94,9 @@ function validate(data) {
         emptyRecipe();
         return;
     } else {
-
+        //Tar bort eventuell felmeddelande
+        apiError.textContent = "";
+        
         //Visar receptet
         showRecipe(data);
     }
