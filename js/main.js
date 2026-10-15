@@ -94,18 +94,24 @@ function validate(data) {
         emptyRecipe();
         return;
     } else {
-        //Visar 
-        showRecipe();
+
+        //Visar receptet
+        showRecipe(data);
     }
 
 }
 
-function showRecipe() {
+
+
+function showRecipe(data) {
 
     console.log("Funktionen showRecipe")
 
     //Tömmer förra receptet
     emptyRecipe();
+
+    console.log(data.recipes[0])
+
 
 }
 
