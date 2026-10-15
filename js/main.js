@@ -68,7 +68,7 @@ async function callApi () {
         const data = await response.json();
         console.log(data);
 
-        showRecipe(data);
+        validate(data);
 
     } catch (error) {
         console.log(error);
@@ -81,9 +81,9 @@ async function callApi () {
 
 
 
-async function showRecipe(data) {
+async function validate(data) {
     
-    console.log("Funktionen showRecipe")
+    console.log("Funktionen validate")
 
     //läser in värdet från formuläret
     const search = searchFood.value;  
