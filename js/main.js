@@ -72,6 +72,7 @@ async function callApi () {
 
     } catch (error) {
         console.log(error);
+        emptyRecipe();
         return;
     }
 
