@@ -136,12 +136,15 @@ function showRecipe(data) {
 
 
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
-    const ingredients = document.createElement("div");
-    ingredients.classList.add("ingredients");
-    recipe.appendChild(ingredients)
+    const ingredientList = document.createElement("div");
+    ingredientList.classList.add("ingredientList");
+    recipe.appendChild(ingredientList)
     
     //Skriver ut ingredienserna
-    ingredients.innerHTML = `<h4>Ingredients</h4>`
+    ingredientList.innerHTML = `<h4>Ingredients</h4>`
+    for (let i = 0; i < ingredients.length; i++) {
+        
+    }
 
 }
 
