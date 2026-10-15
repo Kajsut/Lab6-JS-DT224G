@@ -142,8 +142,8 @@ function showRecipe(data) {
     
     //Skriver ut ingredienserna
     ingredientList.innerHTML = `<h4>Ingredients</h4>`
-    for (let i = 0; i < ingredients.length; i++) {
-        
+    for (let i = 0; i < recipeData.ingredients.length; i++) {
+        ingredientList.innerHTML += `<li>${recipeData.ingredients[i]}</li>`
     }
 
 }
