@@ -113,8 +113,14 @@ function showRecipe(data) {
     //Tömmer förra receptet
     emptyRecipe();
 
-    console.log(data.recipes[0])
+    //Väljer enbart ut recept nummer 1
+    const recipeData = data.recipes[0];
+    console.log(recipeData);
 
+    recipe.innerHTML = `<h3>${recipeData.name}</h3>
+    <img src="${recipeData.image}" alt="${recipeData.name}"></img>
+
+    `
 
 }
 
