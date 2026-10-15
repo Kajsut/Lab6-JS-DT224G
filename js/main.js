@@ -125,14 +125,24 @@ function showRecipe(data) {
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
     const recipeInfo = document.createElement("div");
     recipeInfo.classList.add("recipe-info");
-    document.querySelector("#recipe").appendChild(recipeInfo);
+    recipe.appendChild(recipeInfo);
 
-    ///Skriver ut receptInfo till DOM
+    //Skriver ut receptInfo till DOM
     recipeInfo.innerHTML = `
     <p>Servings: ${recipeData.servings} </p>
     <p>Prep time: ${recipeData.prepTimeMinutes} </p>
     <p>Cooking time: ${recipeData.cookTimeMinutes} </p>
     <p>Difficulty: ${recipeData.difficulty} </p> `
+
+
+    //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
+    const ingredients = document.createElement("div");
+    ingredients.classList.add("ingredients");
+    recipe.appendChild(ingredients)
+    
+    //Skriver ut ingredienserna
+    ingredients.innerHTML = `<h4>Ingredients</h4>`
+
 }
 
 
