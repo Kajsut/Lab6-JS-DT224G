@@ -77,9 +77,6 @@ async function callApi () {
 
 }
 
-            //Egen funktion för felmeddelanden?
-
-
 
 async function validate(data) {
     
@@ -90,7 +87,7 @@ async function validate(data) {
         apiError.textContent = "Kunde ej hämta data";
         emptyRecipe();
         return;
-    } else if (data.recipes.length === 0){
+    } else if (data.recipes.length === 0){  //Felmeddelande ifall det ej finns något recept
         apiError.textContent ="Hittade ej något recept. Testa gärna ett annat sökord";
         emptyRecipe();
         return;
@@ -98,7 +95,7 @@ async function validate(data) {
         showRecipe();
     }
     
-    //Felmeddelande ifall det ej finns något recept
+  
     
 
 
@@ -109,6 +106,8 @@ function emptyRecipe () {
     
 }
 
+function showRecipe() {
 
+}
 
 form.addEventListener("submit", validateForm);
