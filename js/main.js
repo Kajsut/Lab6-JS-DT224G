@@ -68,7 +68,7 @@ async function callApi () {
         const data = await response.json();
         console.log(data);
 
-        validate(data);
+        validateApi(data);
 
     } catch (error) {
         console.log(error);
@@ -79,7 +79,7 @@ async function callApi () {
 }
 
 
-function validate(data) {
+function validateApi(data) {
     
     console.log("Funktionen validate")
 
