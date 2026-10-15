@@ -78,26 +78,34 @@ async function callApi () {
 }
 
 
-async function validate(data) {
+function validate(data) {
     
     console.log("Funktionen validate")
 
-    //Felmeddelande ifall det ej finns data
+    
     if(!data) {
+        //Felmeddelande ifall det ej finns data
         apiError.textContent = "Kunde ej hämta data";
         emptyRecipe();
         return;
-    } else if (data.recipes.length === 0){  //Felmeddelande ifall det ej finns något recept
+    } else if (data.recipes.length === 0){
+        //Felmeddelande ifall det ej finns något recept
         apiError.textContent ="Hittade ej något recept. Testa gärna ett annat sökord";
         emptyRecipe();
         return;
     } else {
+        //Visar 
         showRecipe();
     }
-    
-  
-    
 
+}
+
+function showRecipe() {
+
+    console.log("Funktionen showRecipe")
+
+    //Tömmer förra receptet
+    emptyRecipe();
 
 }
 
@@ -106,8 +114,6 @@ function emptyRecipe () {
     
 }
 
-function showRecipe() {
 
-}
 
 form.addEventListener("submit", validateForm);
