@@ -67,44 +67,44 @@ async function callApi () {
         //Översätter koden från JSON till JavaScript
         const data = await response.json();
         console.log(data);
-        return data;
 
+        showRecipe(data);
 
     } catch (error) {
         console.log(error);
         return;
     }
 
-    
 }
 
             //Egen funktion för felmeddelanden?
 
 
 
-async function showRecipe() {
+async function showRecipe(data) {
     
     console.log("Funktionen showRecipe")
 
     //läser in värdet från formuläret
     const search = searchFood.value;  
     const error = searchError;
-
     
-    const data = await callApi(search);
+
     console.log(data);
 
     //Felmeddelande ifall det ej finns data
     if(!data) {
-        error.textContent("Kunde ej hämta data")
+        apiError.textContent = "Kunde ej hämta data";
+        emptyRecipe();
         return;
-    }
+    } else if (data.recipes.length === 0){
+        apiError.textContent ="Hittade ej något recept. Testa gärna ett annat sökord";
+        emptyRecipe();
+        return;
+    } 
     
     //Felmeddelande ifall det ej finns något recept
-    if(data.recipes.length === 0){
-        error.textContent("Hittade ej något recept. Testa gärna ett annat sökord");
-        emptyRecipe();
-    }
+    
 
 
 }
@@ -117,4 +117,3 @@ function emptyRecipe () {
 
 
 form.addEventListener("submit", validateForm);
-showRecipe();
