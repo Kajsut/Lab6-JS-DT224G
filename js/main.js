@@ -161,7 +161,8 @@ function showRecipe(data) {
 
 
 function emptyRecipe () {
-    
+    console.log("Tar bort receptet");
+    recipe.textContent = "";
 }
 
 
