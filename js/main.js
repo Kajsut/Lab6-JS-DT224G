@@ -118,16 +118,18 @@ function showRecipe(data) {
     console.log(recipeData);
 
     //Skriver ut titel och bild till DOM
-    recipe.innerHTML = `<h3>${recipeData.name}</h3>
+    recipe.innerHTML = `
+    <h3>${recipeData.name}</h3>
     <img src="${recipeData.image}" alt="${recipeData.name}"></img> `
 
-    //Gör ett nytt element i HTML, och lägger den innuti recipeInfo
+    //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
     const recipeInfo = document.createElement("div");
     recipeInfo.classList.add("recipe-info");
     document.querySelector("#recipe").appendChild(recipeInfo);
 
     ///Skriver ut receptInfo till DOM
-    recipeInfo.innerHTML = `<p>Servings: ${recipeData.servings} </p>
+    recipeInfo.innerHTML = `
+    <p>Servings: ${recipeData.servings} </p>
     <p>Prep time: ${recipeData.prepTimeMinutes} </p>
     <p>Cooking time: ${recipeData.cookTimeMinutes} </p>
     <p>Difficulty: ${recipeData.difficulty} </p> `
