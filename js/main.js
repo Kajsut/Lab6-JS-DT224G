@@ -85,13 +85,6 @@ async function validate(data) {
     
     console.log("Funktionen validate")
 
-    //läser in värdet från formuläret
-    const search = searchFood.value;  
-    const error = searchError;
-    
-
-    console.log(data);
-
     //Felmeddelande ifall det ej finns data
     if(!data) {
         apiError.textContent = "Kunde ej hämta data";
@@ -101,7 +94,9 @@ async function validate(data) {
         apiError.textContent ="Hittade ej något recept. Testa gärna ett annat sökord";
         emptyRecipe();
         return;
-    } 
+    } else {
+        showRecipe();
+    }
     
     //Felmeddelande ifall det ej finns något recept
     
