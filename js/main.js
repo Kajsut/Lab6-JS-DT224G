@@ -121,8 +121,6 @@ function showRecipe(data) {
     const ingredientList = document.createElement("div");
     recipe.appendChild(ingredientList);
 
-
-
     //Skapar en punkt-list-element
     const ulIngredients = document.createElement("ul");
 
@@ -138,7 +136,6 @@ function showRecipe(data) {
     }
     //Lägger punktlistan i ingrediens-diven
     ingredientList.appendChild(ulIngredients);
-
 
 
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
