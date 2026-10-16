@@ -66,6 +66,7 @@ async function callApi () {
         validateApi(data);
 
     } catch (error) {
+        apiError.textContent = "Något gick fel, vänligen försök igen senare"
         console.log(`Ett fel inträffade: ` + error);
         emptyRecipe();
         return;
