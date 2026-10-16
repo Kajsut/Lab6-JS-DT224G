@@ -122,10 +122,25 @@ function showRecipe(data) {
     recipe.appendChild(ingredientList);
     
     //Skriver ut ingredienserna i DOM
-    ingredientList.innerHTML = `<h4>Ingredients</h4>`;
-    for (let i = 0; i < recipeData.ingredients.length; i++) {
-        ingredientList.innerHTML += `<ul><li>${recipeData.ingredients[i]}</li></ul>`;
-    }
+//    ingredientList.innerHTML = `<h4>Ingredients</h4>`;
+//    for (let i = 0; i < recipeData.ingredients.length; i++) {
+//        ingredientList.innerHTML += `<ul><li>${recipeData.ingredients[i]}</li></ul>`;
+//    }
+
+                        //Skapar en punkt-list-element
+                        const ulIngredients = document.createElement("ul");
+
+                        //Skriver ut ingredienserna till DOM
+                        ingredientList.innerHTML = `<h4>Ingredients</h4>`;
+                        for (let i = 0; i < recipeData.ingredients.length; i++) {
+
+                            const liIngredients = document.createElement("li");
+                            liIngredients.textContent = recipeData.ingredients[i];
+                            ulIngredients.appendChild(liIngredients);
+                        }
+
+                        ingredientList.appendChild(ulIngredients);
+
 
 
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
@@ -133,7 +148,7 @@ function showRecipe(data) {
     recipe.appendChild(instructionList);
 
     //Skapar en list-element
-    const ol = document.createElement("ol");
+    const olInstruction = document.createElement("ol");
 
     //Skriver ut instroktionerna i DOM
     instructionList.innerHTML = `<h4>Instructions</h4>`;
@@ -141,10 +156,10 @@ function showRecipe(data) {
         
         const li = document.createElement("li");
         li.textContent = recipeData.instructions[i];
-        ol.appendChild(li);
+        olInstruction.appendChild(li);
         
     }
-    instructionList.appendChild(ol);
+    instructionList.appendChild(olInstruction);
 
 }
 
