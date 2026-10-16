@@ -49,15 +49,12 @@ function validateForm (event) {
 
 
 async function callApi () {
-    console.log("callApi...")
-    
     //läser in värdet från formuläret
     const search = searchFood.value;    
     
     try {
         //Hämtar information från APIn
         const response = await fetch (`https://dummyjson.com/recipes/search?q=${search}`)
-        console.log(response);
 
         //Kollar om APIn ger response
         if(!response.ok){
@@ -66,8 +63,6 @@ async function callApi () {
     
         //Översätter koden från JSON till JavaScript
         const data = await response.json();
-        console.log(data);
-
         validateApi(data);
 
     } catch (error) {
@@ -80,10 +75,7 @@ async function callApi () {
 
 
 function validateApi(data) {
-    
-    console.log("Funktionen validate")
 
-    
     if(!data) {
         //Felmeddelande ifall det ej finns data
         apiError.textContent = "Kunde ej hämta data";
@@ -108,14 +100,11 @@ function validateApi(data) {
 
 function showRecipe(data) {
 
-    console.log("Funktionen showRecipe")
-
     //Tömmer förra receptet
     emptyRecipe();
 
     //Väljer enbart ut recept nummer 1
     const recipeData = data.recipes[0];
-    console.log(recipeData);
 
     //Skriver ut titel och bild till DOM
     recipe.innerHTML = `
@@ -168,7 +157,6 @@ function showRecipe(data) {
 
 
 function emptyRecipe () {
-    console.log("Tar bort receptet");
     recipe.textContent = "";
 }
 
