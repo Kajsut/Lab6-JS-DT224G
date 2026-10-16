@@ -54,11 +54,11 @@ async function callApi () {
     
     try {
         //Hämtar information från APIn
-        const response = await fetch (`https://dummyjson.com/recipes/search?q=${search}`)
+        const response = await fetch (`https://dummyjson.com/recipes/search?q=${search}`);
 
         //Kollar om APIn ger response
         if(!response.ok){
-            throw new Error(`Ett fel inträffade: ${response.status}`)
+            throw new Error(`Ett fel inträffade: ${response.status}`);
         }
     
         //Översätter koden från JSON till JavaScript
@@ -109,7 +109,7 @@ function showRecipe(data) {
     //Skriver ut titel och bild till DOM
     recipe.innerHTML = `
     <h3>${recipeData.name}</h3>
-    <img src="${recipeData.image}" alt="${recipeData.name}"></img> `
+    <img src="${recipeData.image}" alt="${recipeData.name}"></img> `;
 
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
     const recipeInfo = document.createElement("div");
@@ -121,7 +121,7 @@ function showRecipe(data) {
     <p>Servings: ${recipeData.servings} </p>
     <p>Prep time: ${recipeData.prepTimeMinutes} </p>
     <p>Cooking time: ${recipeData.cookTimeMinutes} </p>
-    <p>Difficulty: ${recipeData.difficulty} </p> `
+    <p>Difficulty: ${recipeData.difficulty} </p> `;
 
 
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
@@ -129,9 +129,9 @@ function showRecipe(data) {
     recipe.appendChild(ingredientList);
     
     //Skriver ut ingredienserna i DOM
-    ingredientList.innerHTML = `<h4>Ingredients</h4>`
+    ingredientList.innerHTML = `<h4>Ingredients</h4>`;
     for (let i = 0; i < recipeData.ingredients.length; i++) {
-        ingredientList.innerHTML += `<ul><li>${recipeData.ingredients[i]}</li></ul>`
+        ingredientList.innerHTML += `<ul><li>${recipeData.ingredients[i]}</li></ul>`;
     }
 
 
@@ -143,7 +143,7 @@ function showRecipe(data) {
     const ol = document.createElement("ol");
 
     //Skriver ut instroktionerna i DOM
-    instructionList.innerHTML = `<h4>Instructions</h4>`
+    instructionList.innerHTML = `<h4>Instructions</h4>`;
     for (let i = 0; i < recipeData.instructions.length; i++) {
         
         const li = document.createElement("li");
