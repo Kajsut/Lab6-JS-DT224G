@@ -120,26 +120,24 @@ function showRecipe(data) {
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
     const ingredientList = document.createElement("div");
     recipe.appendChild(ingredientList);
-    
-    //Skriver ut ingredienserna i DOM
-//    ingredientList.innerHTML = `<h4>Ingredients</h4>`;
-//    for (let i = 0; i < recipeData.ingredients.length; i++) {
-//        ingredientList.innerHTML += `<ul><li>${recipeData.ingredients[i]}</li></ul>`;
-//    }
 
-                        //Skapar en punkt-list-element
-                        const ulIngredients = document.createElement("ul");
 
-                        //Skriver ut ingredienserna till DOM
-                        ingredientList.innerHTML = `<h4>Ingredients</h4>`;
-                        for (let i = 0; i < recipeData.ingredients.length; i++) {
 
-                            const liIngredients = document.createElement("li");
-                            liIngredients.textContent = recipeData.ingredients[i];
-                            ulIngredients.appendChild(liIngredients);
-                        }
+    //Skapar en punkt-list-element
+    const ulIngredients = document.createElement("ul");
 
-                        ingredientList.appendChild(ulIngredients);
+    //Skriver ut ingredienserna till DOM
+    ingredientList.innerHTML = `<h4>Ingredients</h4>`;
+    for (let i = 0; i < recipeData.ingredients.length; i++) {
+        
+        //Läger varje ingrediens i ett li element
+        const liIngredients = document.createElement("li");
+        liIngredients.textContent = recipeData.ingredients[i];
+        //Läger ihop varje li element till en punktlista
+        ulIngredients.appendChild(liIngredients);
+    }
+    //Lägger punktlistan i ingrediens-diven
+    ingredientList.appendChild(ulIngredients);
 
 
 
@@ -154,11 +152,14 @@ function showRecipe(data) {
     instructionList.innerHTML = `<h4>Instructions</h4>`;
     for (let i = 0; i < recipeData.instructions.length; i++) {
         
+        //Läger varje steg i ett li element
         const li = document.createElement("li");
         li.textContent = recipeData.instructions[i];
+        //Läger ihop varje li element till en sifferlista
         olInstruction.appendChild(li);
         
     }
+    //Lägger sifferlistan i instuktions-diven
     instructionList.appendChild(olInstruction);
 
 }
