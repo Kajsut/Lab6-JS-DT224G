@@ -71,7 +71,7 @@ async function callApi () {
         validateApi(data);
 
     } catch (error) {
-        console.log(error);
+        console.log(`Ett fel inträffade: ` + error);
         emptyRecipe();
         return;
     }
