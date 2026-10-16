@@ -28,6 +28,7 @@ function validateForm (event) {
         searchError.textContent = "Du måste fylla i en sökfras";
         return;
     } else {
+        //Tar bort meddelande om if-satsen går igenom
         searchError.textContent = "";
     }
 
@@ -54,6 +55,7 @@ async function callApi () {
         validateApi(data);
 
     } catch (error) {
+        //Om ej APIn gick igenom, ta bort recept samt skriv ut ett felmeddelande
         apiError.textContent = "Något gick fel, vänligen försök igen senare";
         console.log(`Ett fel inträffade: ` + error);
         emptyRecipe();
@@ -70,11 +72,13 @@ function validateApi(data) {
         apiError.textContent = "Kunde ej hämta data";
         emptyRecipe();
         return;
+
     } else if (data.recipes.length === 0){
         //Felmeddelande ifall det ej finns något recept
         apiError.textContent ="Hittade ej något recept. Testa gärna ett annat sökord";
         emptyRecipe();
         return;
+
     } else {
         //Tar bort eventuell felmeddelande
         apiError.textContent = "";
@@ -99,6 +103,7 @@ function showRecipe(data) {
     recipe.innerHTML = `
     <h3>${recipeData.name}</h3>
     <img src="${recipeData.image}" alt="${recipeData.name}"></img> `;
+
 
     //Gör ett nytt element i HTML, och lägger den inuti recipeInfo
     const recipeInfo = document.createElement("div");
@@ -146,9 +151,10 @@ function showRecipe(data) {
 
 
 function emptyRecipe () {
+    //Tar bort receptet från DOM
     recipe.textContent = "";
 }
 
 
-
+//Startar validateForm om man trycker på knappen "sök"
 form.addEventListener("submit", validateForm);
