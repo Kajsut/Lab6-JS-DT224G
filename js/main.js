@@ -150,12 +150,19 @@ function showRecipe(data) {
     const instructionList = document.createElement("div");
     recipe.appendChild(instructionList);
 
+    //Skapar en list-element
+    const ol = document.createElement("ol");
+
     //Skriver ut instroktionerna i DOM
     instructionList.innerHTML = `<h4>Instructions</h4>`
     for (let i = 0; i < recipeData.instructions.length; i++) {
-        instructionList.innerHTML += `<ol><li>${recipeData.instructions[i]}</li></ol>`
+        
+        const li = document.createElement("li");
+        li.textContent = recipeData.instructions[i];
+        ol.appendChild(li);
+        
     }
-
+    instructionList.appendChild(ol);
 
 }
 
