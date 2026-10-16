@@ -7,7 +7,6 @@
 //Hämtar element från DOM
 const form = document.querySelector("#searchform");
 const searchFood = document.querySelector("#search");
-const button = document.querySelector("#searchbutton");
 
 const recipe = document.querySelector("#recipe");
 
